@@ -1,5 +1,8 @@
+//react, componentes, estáticos
+import Welcome from "./components/Welcome";
+
 import './App.css'
-import Welcome from './components/welcome'
+
 
 function App() {
 
