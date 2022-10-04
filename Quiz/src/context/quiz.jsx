@@ -6,19 +6,27 @@ const STAGES = ["Start", "Playing", "End"];
 const initialState = {
     gameStage: STAGES[0],
     questions,
+    currentQuestions: 0, 
 }
 
 const quizReducer = (state, action) => {
     console.log(state, action);
 
     switch (action.type) {
-        case "CHANGE_STATE":
+        case "CHANGE_STAGE":
             return {
                 ...state,
-                gameStage:STAGES[1],    
-            }
-        default:
+                gameStage: STAGES[1],   
+            };
+        case "REORDER_QUESTIONS":
+            const reorderedQuestion = questions.sort(() => {
+                return Math.random() - 0.5;
+            });
+
             return state;
+
+            default:
+                return state;
     }
 }
 
