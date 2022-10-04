@@ -23,7 +23,17 @@ const quizReducer = (state, action) => {
                 return Math.random() - 0.5;
             });
 
-            return state;
+            return {
+                ...state,
+                questions: reorderedQuestion,
+            };
+
+        case "CHANGE_QUESTION":
+            const nextQuestion = state.currentQuestions + 1;
+            return {
+                ...state,
+                currentQuestions: nextQuestion,
+            };
 
             default:
                 return state;
